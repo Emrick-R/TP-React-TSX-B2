@@ -50,11 +50,12 @@ Les fichiers optimisés sont générés dans le dossier `dist/`.
 
 ```
 src/
-├── pages/           # Composants de page (Connexion, Profile, User, Recette, UserList, Err404)
-│   └── css/          # Feuilles de style
-├── components/       # Composants réutilisables (Header, etc.)
-├── users.json         # Données des utilisateurs
-├── recipes.json       # Données des recettes
+├── pages/             # Composants de page (Connexion, Profile, User, Recette, UserList, Err404)
+│   └── css/           # Feuilles de style
+├── components/        # Composants réutilisables (Header, etc.)
+├── data/              # Données JSON
+│   └── users.json     # Données des utilisateurs
+│   └──recipes.json    # Données des recettes
 ├── App.jsx            # Page d'accueil
 └── main.tsx           # Point d'entrée, configuration du routeur
 ```
