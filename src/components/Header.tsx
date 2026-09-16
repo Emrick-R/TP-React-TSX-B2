@@ -1,7 +1,9 @@
 import {Link} from "react-router-dom";
+import {type Dispatch, type SetStateAction} from "react";
 
-function Header() {
-    let userId = localStorage.getItem("userId")
+//On récupère les props donné par le layout, le setter est de type Dispatch<SetStateAction<string | null>> et peut donc recevoir un string ou rien.
+function Header({userId, setUserId} : {userId : string | null, setUserId: Dispatch<SetStateAction<string | null>>}) {
+
     return (
         <header className="main-header">
             <ul className="nav-list">
@@ -13,9 +15,16 @@ function Header() {
                 </li>
                 <li>
                     {userId ?
-                        (<header><Link to={`/profile/${Number(userId)}`}>Mon profil</Link></header>)
+                        (<header><Link to={`/profile/${userId}`}>Mon profil</Link></header>)
                         :
                         (<header><Link to={"/connexion"}>Connexion</Link></header>)
+                    }
+                </li>
+                <li>
+                    {userId ?
+                        ((<header><Link to={"/"} onClick={() => {localStorage.removeItem("userId"); setUserId("");}}>Déconnexion</Link></header>))
+                        :
+                        (<></>)
                     }
                 </li>
             </ul>
